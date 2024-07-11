@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\Health\Http\Controllers\SimpleHealthCheckController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('verify.shopify')->name('home');
 
+Route::get('/phpinfo', function () { phpinfo(); });
 
-
-
-Route::get('/phpinfo', function () {
-    phpinfo();
-});
+Route::get('health', SimpleHealthCheckController::class); //TODO: add auth middleware
