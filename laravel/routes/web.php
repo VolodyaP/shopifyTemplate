@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Spatie\Health\Http\Controllers\SimpleHealthCheckController;
+use Spatie\Health\Http\Controllers\HealthCheckResultsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +14,15 @@ use Spatie\Health\Http\Controllers\SimpleHealthCheckController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('verify.shopify')->name('home');
 
-Route::get('/phpinfo', function () { phpinfo(); });
 
-Route::get('health', SimpleHealthCheckController::class); //TODO: add auth middleware
+Route::middleware('verify.shopify')->group(function () {
+    Route::get('/', function () { return view('welcome'); })->name('home');
+    Route::get('/me', function () { return response()->json(['name' => auth()->user()->name]); });
+});
+
+
+
+//TODO: add auth middleware
+Route::get('phpinfo', function () { phpinfo(); });
+Route::get('health', HealthCheckResultsController::class);

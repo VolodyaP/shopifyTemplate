@@ -25,6 +25,12 @@ services:
             - mysql
             - redis
             - memcached
+    php-queue:
+        restart: always
+        image: sail-8.3/app:latest
+        command: 'php artisan queue:work'
+        volumes:
+            - '.:/var/www/html'
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:

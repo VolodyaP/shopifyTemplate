@@ -12,6 +12,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "@shopify/app-bridge": "^3.7.10",
         "laravel-vite-plugin": "^1.0.5"
     }
 }
