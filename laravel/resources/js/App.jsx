@@ -1,7 +1,8 @@
+
 const App = () => {
     return (
-        <div> Hello World</div>
-    )
+            <div> Hello World Shopify</div>
+    );
 }
 
 export default App

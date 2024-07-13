@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <meta name="shopify-api-key" content="{{ env('SHOPIFY_API_KEY') }}" />
+
+    <script src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+
     @vitereactrefresh
     @vite('resources/js/index.jsx')
 </head>
 <body>
-<main>
-    <h1>Welcome to My Website</h1>
-</main>
 </body>
 </html>
