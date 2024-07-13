@@ -17,7 +17,7 @@ use Spatie\Health\Http\Controllers\HealthCheckResultsController;
 
 
 Route::middleware('verify.shopify')->group(function () {
-    Route::get('/', function () { return view('welcome'); })->name('home');
+    Route::view('/','app')->name('home');
     Route::get('/me', function () { return response()->json(['name' => auth()->user()->name]); });
 });
 
